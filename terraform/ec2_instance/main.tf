@@ -17,7 +17,7 @@ resource "aws_instance" "example" {
 
   user_data = <<-EOF
               #!/bin/bash
-               ${file("./userdata.sh")}
+               ${file("./ec2_instance/userdata.sh")}
               EOF
 
   tags = {
