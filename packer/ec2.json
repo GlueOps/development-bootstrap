@@ -1,0 +1,24 @@
+{
+    "variables": {
+      "aws_access_key": "",
+      "aws_secret_key": ""
+    },
+    "builders": [
+      {
+        "type": "amazon-ebs",
+        "access_key": "{{user `aws_access_key`}}",
+        "secret_key": "{{user `aws_secret_key`}}",
+        "region": "us-west-2",
+        "source_ami": "ami-03f65b8614a860c29",
+        "instance_type": "t3.large",
+        "ssh_username": "ubuntu",
+        "ami_name": "glueops-dev-bootstrap"
+      }
+    ],
+    "provisioners": [
+      {
+        "type": "shell",
+        "script": "provision.sh"
+      }
+    ]
+  } 
