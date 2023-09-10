@@ -95,6 +95,13 @@ sudo curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/release
 sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd
 sudo rm argocd-linux-amd64
 
+# Install Github CLI
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+&& sudo apt update \
+&& sudo apt install gh -y
+
 # Set up non-root user and Docker socket access
 SOCKET_GID=$(sudo stat -c '%g' /var/run/docker.sock)
 if [ "${SOCKET_GID}" != '0' ]; then
