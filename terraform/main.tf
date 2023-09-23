@@ -13,7 +13,7 @@ module "code_tunnel_test_vm" {
   source = "./ec2_instance"
   vpc_id = "vpc-096b3742dd109c564"
   subnet_id = "subnet-0df3fe7264ba9cb9b"
-  instance_type = "t3.large"
+  instance_type = "t3.xlarge"
   root_volume_size = 50
   ebs_volume_size = 50
   key_pair = "balaji-vs-code-server"
