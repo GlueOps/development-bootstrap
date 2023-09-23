@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NONROOT_USER="ubuntu"
+export NONROOT_USER="ubuntu"
 
 # Create a KIND cluster
 kind create cluster --config=- <<EOF
