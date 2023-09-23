@@ -29,16 +29,17 @@ yes Y | gh auth login -h github.com -p https -w -s repo,workflow,admin:org,write
 
 gh auth setup-git
 ```
-3. git clone https://github.com/development-captains/test-80-np.venkata.onglueops.rocks 
+3. git clone https://github.com/development-captains/test-1-np.uranus.onglueops.rocks.git 
 ```
-cd test-80-np.venkata.onglueops.rocks
+cd test-1-np.uranus.onglueops.rocks
 
 # Install argocd
 helm repo add argo https://argoproj.github.io/argo-helm
-source <(curl -s https://raw.githubusercontent.com/GlueOps/development-only-utilities/v0.4.1/tools/glueops-platform/deploy-argocd) && deploy-argocd -c v2.7.11 -h 5.42.2
+source <(curl -s https://raw.githubusercontent.com/GlueOps/development-only-utilities/v0.4.2/tools/glueops-platform/deploy-argocd) && \
+    deploy-argocd -c v2.8.3 -h 5.45.4
 
 # Install Glueops
-source <(curl -s https://raw.githubusercontent.com/GlueOps/development-only-utilities/v0.4.1/tools/glueops-platform/deploy-glueops-platform) && \
-    deploy-glueops-platform -v v0.30.0
+source <(curl -s https://raw.githubusercontent.com/GlueOps/development-only-utilities/v0.4.2/tools/glueops-platform/deploy-glueops-platform) && \
+    deploy-glueops-platform -v v0.32.0
 ```
 
