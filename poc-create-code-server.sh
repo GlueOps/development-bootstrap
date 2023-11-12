@@ -16,7 +16,7 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 sudo groupadd -f docker
 sudo usermod -aG docker $USER
-newgrp docker
+#newgrp docker
 
 # run code tunnel
 mkdir -p workspaces/glueops; sudo docker run -it --net=host --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --privileged --init -v `pwd`/workspaces/glueops:/workspaces/glueops -v /var/run/docker.sock:/var/run/docker.sock -u vscode -w /workspaces/glueops ghcr.io/glueops/codespaces:v0.32.0-alpha4 bash -c "code tunnel --verbose --log trace"
