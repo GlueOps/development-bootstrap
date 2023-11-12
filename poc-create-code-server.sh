@@ -19,4 +19,4 @@ sudo usermod -aG docker $USER
 newgrp docker
 
 # run code tunnel
-mkdir -p workspaces/glueops; sudo docker run -it -p 8000:8000 --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --privileged --init -v `pwd`/workspaces/glueops:/workspaces/glueops -v /var/run/docker.sock:/var/run/docker.sock -u vscode -w /workspaces/glueops ghcr.io/glueops/codespaces:v0.32.0-alpha4 bash -c "code tunnel --verbose --log trace"
+mkdir -p workspaces/glueops; sudo docker run -it --net=host --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --privileged --init -v `pwd`/workspaces/glueops:/workspaces/glueops -v /var/run/docker.sock:/var/run/docker.sock -u vscode -w /workspaces/glueops ghcr.io/glueops/codespaces:v0.32.0-alpha4 bash -c "code tunnel --verbose --log trace"
